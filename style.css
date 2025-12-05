@@ -1,6 +1,5 @@
 /* 1. Variables & Reset */
 :root {
-    /* Color Palette */
     --primary-color: #3498db;
     --secondary-color: #2c3e50;
     --bg-color: #ffffff;
@@ -11,7 +10,6 @@
     --transition: all 0.3s ease;
 }
 
-/* Dark Mode Variables */
 [data-theme="dark"] {
     --bg-color: #1a1a1a;
     --bg-light: #2d2d2d;
@@ -85,7 +83,6 @@ a {
     color: #fff;
 }
 
-/* Focus States for Accessibility */
 button:focus, a:focus, input:focus, textarea:focus {
     outline: 3px solid var(--primary-color);
     outline-offset: 2px;
@@ -117,6 +114,7 @@ header {
 .nav-links {
     display: flex;
     list-style: none;
+    align-items: center; /* Ensures button aligns with text */
 }
 
 .nav-links li {
@@ -147,7 +145,7 @@ header {
     font-size: 1.2rem;
     color: var(--text-color);
     cursor: pointer;
-    margin-right: 15px;
+    /* Removed extra margin so it fits in the list perfectly */
 }
 
 /* 4. Hero Section */
@@ -157,7 +155,7 @@ header {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding-top: 60px; /* Offset for fixed header */
+    padding-top: 60px;
 }
 
 .hero h1 {
@@ -297,7 +295,7 @@ footer {
     padding: 15px;
     border-radius: 50%;
     cursor: pointer;
-    display: none; /* Hidden by default */
+    display: none;
     box-shadow: var(--shadow);
 }
 
@@ -326,7 +324,7 @@ footer {
         width: 100%;
         background: var(--bg-color);
         flex-direction: column;
-        display: none; /* Hidden on mobile by default */
+        display: none;
         box-shadow: var(--shadow);
         padding: 20px 0;
     }

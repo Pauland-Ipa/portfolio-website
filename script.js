@@ -6,17 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-        // Accessibility: Toggle aria-expanded
         const isExpanded = navLinks.classList.contains('active');
         menuToggle.setAttribute('aria-expanded', isExpanded);
     });
 
-    // FEATURE 2: Dark Mode Toggle with Local Storage persistence
+    // FEATURE 2: Dark Mode Toggle
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
     const icon = themeToggle.querySelector('i');
 
-    // Check saved theme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         body.setAttribute('data-theme', 'dark');
@@ -55,21 +53,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!isDeleting && charIndex === currentWord.length) {
             isDeleting = true;
-            setTimeout(type, 2000); // Pause at end of word
+            setTimeout(type, 2000); 
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             wordIndex = (wordIndex + 1) % words.length;
-            setTimeout(type, 500); // Pause before new word
+            setTimeout(type, 500); 
         } else {
             setTimeout(type, isDeleting ? 100 : 200);
         }
     }
-    type(); // Initialize
+    type();
 
     // FEATURE 4: Dynamic Copyright Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // FEATURE 5: Scroll Reveal Animation (Reveal elements on scroll)
+    // FEATURE 5: Scroll Reveal Animation
     const revealElements = document.querySelectorAll('.reveal');
 
     const revealOnScroll = () => {
@@ -100,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // FEATURE 7: Active Link Highlight on Scroll (ScrollSpy)
+    // FEATURE 7: Active Link Highlight on Scroll
     const sections = document.querySelectorAll('section');
     const navItems = document.querySelectorAll('.nav-link');
 
@@ -122,17 +120,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // FEATURE 8: Contact Form Validation (Front-end only)
+    // FEATURE 8: Contact Form Validation
     const form = document.getElementById('contact-form');
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
     const messageInput = document.getElementById('message');
 
     form.addEventListener('submit', (e) => {
-        e.preventDefault(); // Prevent actual submission
+        e.preventDefault(); 
         let isValid = true;
 
-        // Reset errors
         document.querySelectorAll('.error-msg').forEach(el => el.textContent = '');
 
         if (nameInput.value.trim() === '') {
